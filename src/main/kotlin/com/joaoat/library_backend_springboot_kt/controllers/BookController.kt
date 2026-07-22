@@ -22,4 +22,10 @@ class BookController(
     fun getBookById(@PathVariable id: Long): BookDTO {
         return bookService.getBookById(id)
     }
+
+    @GetMapping("/{id}/save")
+    fun saveBook(@PathVariable id: Long): String {
+        bookService.saveBook(id)
+        return "if you're reading this, no error has occurred, so the database is probably working now"
+    }
 }

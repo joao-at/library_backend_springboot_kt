@@ -3,12 +3,12 @@ package com.joaoat.library_backend_springboot_kt.services
 import com.joaoat.library_backend_springboot_kt.dtos.BookDTO
 import com.joaoat.library_backend_springboot_kt.entities.Book
 import com.joaoat.library_backend_springboot_kt.mappers.toBookDTO
-//import com.joaoat.library_backend_springboot_kt.repositories.BookRepository
+import com.joaoat.library_backend_springboot_kt.repositories.BookRepository
 import org.springframework.stereotype.Service
 
 @Service
 class BookService(
-   // private val bookRepository: BookRepository
+   private val bookRepository: BookRepository
 ) {
     val books = listOf<Book>(
         Book(id = 0, title = "Amarelo - História de uma cor", author = "Michel Pastoureau" ),
@@ -26,6 +26,10 @@ class BookService(
 
     fun getBookById(id: Long): BookDTO {
         return books[id.toInt()].toBookDTO()
+    }
+
+    fun saveBook(id: Long) {
+        bookRepository.save(books[id.toInt()])
     }
 
 }

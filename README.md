@@ -1,0 +1,1 @@
+Command to run the database: `docker compose up`

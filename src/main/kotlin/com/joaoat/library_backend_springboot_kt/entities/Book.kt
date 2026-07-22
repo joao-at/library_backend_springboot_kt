@@ -1,14 +1,16 @@
 package com.joaoat.library_backend_springboot_kt.entities
 
-//import jakarta.persistence.Id
-//import jakarta.persistence.Entity
+import jakarta.persistence.Id
+import jakarta.persistence.Entity
 import java.util.UUID
 
-//@Entity
+@Entity
 class Book(
-    //@Id
+    @Id
     //var id: UUID,
-    val id: Long,
+    var id: Long,
     var title: String,
     var author: String
-)
+) {
+    constructor() : this(0, "", "")
+}
